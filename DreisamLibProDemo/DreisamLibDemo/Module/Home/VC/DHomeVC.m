@@ -105,15 +105,11 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Finsh device（结束生命周期）" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [DreisamLibManage.shareLib.bleManage finshDevice:^(DreisamEnumState state) {
-            if (state==DreisamEnumStateOperationSucceeded) {
-                [ListHub showText:@"operation succeeded" maskBackgroudEdit:YES];
-                 
-                [weakSelf clearDeviceAllData];
-                
-            }else{
-                [ListHub showText:@"operation failure" maskBackgroudEdit:YES];
-            }
+        [DreisamLibManage.shareLib.bleManage finshDeviceSuccessCallback:^{
+            [ListHub showText:@"operation succeeded" maskBackgroudEdit:YES];
+            [weakSelf clearDeviceAllData];
+        } errorCallback:^(NSInteger code, NSString *msg) {
+            [ListHub showText:@"operation failure" maskBackgroudEdit:YES];
         }];
         
     }]];

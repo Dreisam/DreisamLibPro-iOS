@@ -49,29 +49,9 @@
     
     if (self.isAddDevice) {
         [ListHub showLoadingText:nil maskBackgroudEdit:NO showForever:YES];
-        [DreisamLibManage.shareLib.bleManage bindDevice:result resultCallback:^(DreisamBindingProcessState state, DreisamDeviceModel *deviceModel) {
-            if (state==DreisamBindingProcessStateBindingFailure) {
-                [ListHub showText:@"Binding failure" maskBackgroudEdit:YES];
-            }else{
-                [ListHub showText:@"Binding successful" maskBackgroudEdit:YES];
-
-                // cache
-                NSData *jsonData = [[deviceModel mj_keyValues] mj_JSONData];
-                [[NSUserDefaults standardUserDefaults] setObject:jsonData forKey:BLE_My_Device_Model_key];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                
-                if (weakSelf.codeCompletion) {
-                    weakSelf.codeCompletion(result);
-                }
-                
-                
-                [weakSelf.navigationController popViewControllerAnimated:YES];
-                NSLog(@"resultCallback = %@",deviceModel.device_sn);
-
-            }
+        
+        [DreisamLibManage.shareLib.bleManage bindDevice:result processProgress:^(DreisamBindingProcessState state) {
             
-        } processProgress:^(DreisamBindingProcessState state) {
             if (state==DreisamBindingProcessStateScanning) {
                 [ListHub showLoadingText:@"Scanning" maskBackgroudEdit:NO showForever:YES];
             }else if (state==DreisamBindingProcessStateConnecting){
@@ -79,6 +59,26 @@
             }else if (state==DreisamBindingProcessStateInBinding){
                 [ListHub showLoadingText:@"InBinding" maskBackgroudEdit:NO showForever:YES];
             }
+        } successCallback:^(DreisamDeviceModel *deviceModel) {
+            
+            [ListHub showText:@"Binding successful" maskBackgroudEdit:YES];
+            
+            // cache
+            NSData *jsonData = [[deviceModel mj_keyValues] mj_JSONData];
+            [[NSUserDefaults standardUserDefaults] setObject:jsonData forKey:BLE_My_Device_Model_key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+            if (weakSelf.codeCompletion) {
+                weakSelf.codeCompletion(result);
+            }
+            
+            
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            NSLog(@"resultCallback = %@",deviceModel.device_sn);
+
+        } errorCallback:^(NSInteger code, NSString *msg) {
+            [ListHub showText:@"Binding failure" maskBackgroudEdit:YES];
         }];
         
     }else{

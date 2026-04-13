@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/BleManage.h</key>
 		<data>
-		mDfARhBGoaNeilsILYMLUXD0rMI=
+		NUvy6bj6bhCNBQdJzav3azbX6j8=
 		</data>
 		<key>Headers/DreisamBuilderParam.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Headers/DreisamEnum.h</key>
 		<data>
-		SDvifsKXSiDf6fE34+dnNakTshk=
+		SrS4ZCh4ZDPr7ZBzrbLw38kEdAc=
 		</data>
 		<key>Headers/DreisamGlucoseModel.h</key>
 		<data>
-		CcNYuzez0JeCUPfCFBf9ved9bu8=
+		L90VSAoWzGKY23+3VosFHUfzE7g=
 		</data>
 		<key>Headers/DreisamLibManage.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		d35FLb8QAj433wFzfEtZ+hDYC0M=
+		Pb3MqPi3wgKRhLRim4Z/ViZ2v8c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,7 +47,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QbqVb563nTSAHVs7eZOWR/If1rXw0AbzWRAEkxye5KE=
+			JNORnkrup9o1BC+yyS1Va+Hc0Colj92N53F2WSR04Wg=
 			</data>
 		</dict>
 		<key>Headers/DreisamBuilderParam.h</key>
@@ -68,14 +68,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s/bSFYAiq8En6U7Segw1E2mfw/Kdz/GJ4Dj9aq3wqK0=
+			1thHRs7GIp5nrF8JM0Qw4JAsp1lrQoT+eNCVB2GF6NY=
 			</data>
 		</dict>
 		<key>Headers/DreisamGlucoseModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pGEheZ51h9zAJNTEcnxzTCSOpAnDr9wA1Ypf4oqd5v8=
+			QmoToLGOIPrGjt+tRkvvhPeSdDes34+dKEiIfo6S/nY=
 			</data>
 		</dict>
 		<key>Headers/DreisamLibManage.h</key>

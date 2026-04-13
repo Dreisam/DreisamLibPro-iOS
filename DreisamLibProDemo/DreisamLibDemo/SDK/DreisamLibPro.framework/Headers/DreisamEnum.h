@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, DreisamEnumState) {
     DreisamEnumStateIndicateLoading,                //loading，The last data report is greater than 3 minutes（最近一次数据上报大于3分钟，可转圈）
     DreisamEnumBleStatePoweredOn,                   //Bluetooth has been turned on（手机蓝牙已打开）
     DreisamEnumBleStatePoweredOff,                  //Bluetooth has been turned off（手机蓝牙已关闭）
+    DreisamEnumBleStateUnauthorized,                //Bluetooth no permissions（APP蓝牙无权限）
     
     DreisamEnumStateUnDeviceAvailable,              //An unavailable device,Device binding is required（无可用设备，先绑定）
     DreisamEnumStateUnDeviceExpire,                 //Expiration of device（设备已到期）
@@ -29,8 +30,7 @@ typedef NS_ENUM(NSInteger, DreisamEnumState) {
     DreisamEnumStateTokenExpiration,                //token expiration（token过期）
     DreisamEnumStateTokenInvalid,                   //token invalid（无效的token）
     
-    DreisamEnumStateOperationSucceeded,             //The operation succeeded. - (void)finshDevice:(void(^)(DreisamEnumState state))callback;
-    DreisamEnumStateOperationFailed,                //Operation failed - (void)finshDevice:(void(^)(DreisamEnumState state))callback;
+    DreisamEnumStateExistSensorStartTime,           //私有，SDK内部使用
 };
 
 
@@ -41,7 +41,6 @@ typedef NS_ENUM(NSInteger, DreisamBindingProcessState) {
     DreisamBindingProcessStateConnecting,                   //Bluetooth connecting（蓝牙连接中）
     DreisamBindingProcessStateInBinding,                    //in binding（设备绑定中）
     DreisamBindingProcessStateBindingSuccessful,            //Binding Successful（绑定成功）
-    DreisamBindingProcessStateBindingFailure,               //Binding Failure（绑定失败）
 };
 
 #endif /* DreisamEnum_h */
