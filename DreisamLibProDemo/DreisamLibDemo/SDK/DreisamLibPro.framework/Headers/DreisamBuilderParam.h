@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Server identity，Required
 @property (nonatomic, strong) NSString *server;
 
-/// APP id，Required
-@property (nonatomic, strong) NSString *appId;
+/// License，Required
+@property (nonatomic, strong) NSString *license;
 
 /// Hide log，Default no
 @property (nonatomic, assign) BOOL hideLog;
